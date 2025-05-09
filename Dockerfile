@@ -73,7 +73,6 @@ RUN yes | sdkmanager --licenses > /dev/null || true
 # Install essential SDK components: platform-tools (adb), emulator, and build-tools (contains apksigner)
 RUN sdkmanager --install \
     "platform-tools" \
-    "emulator" \
     "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
 
 # --- Generate Standard Debug Keystore ---
