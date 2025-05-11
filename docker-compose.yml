@@ -1,0 +1,34 @@
+version: '3.8' # Specifies the Compose file format version
+
+services:
+  # Define a name for your service (container) - can be anything descriptive
+  rocky_env:
+    # Instructions on how to build the image for this service
+    build:
+      # Use the Dockerfile in the current directory (.) as the build context
+      context: .
+      # Optionally specify the Dockerfile name if it's not 'Dockerfile'
+      # dockerfile: Dockerfile
+    image: wow_apk_mod # Optionally name the image built by compose
+
+    # Define volumes to mount
+    volumes:
+      # Mount the current directory on the host (.)
+      # into the /workspace directory inside the container.
+      # This relative path works cross-platform.
+      - .:/workspace
+
+    # Keep stdin open (-i in docker run)
+    stdin_open: true
+    # Allocate a pseudo-TTY (-t in docker run)
+    tty: true
+
+    command: >
+      /bin/bash -c "
+      if [ -f /workspace/tools/init.sh ]; then
+        echo '--- Running init script ---';
+        bash /workspace/tools/init.sh;
+        echo '--- init script finished ---';
+      fi &&
+      exec bash
+      "
