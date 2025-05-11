@@ -40,8 +40,8 @@ commands from the tools I've made:
         Alias for modify.
 
 If you need some inspiration or help getting started on writing modifications using
-monocecil, checkout he fork "rock-wow/mods.cs". There you see how I implemented
-my modifications.
+monocecil, checkout he fork "rock-wow/mods.cs" under branch "rocky". 
+There you see can see how I implemented my modifications.
 
 The modifications are all targeted at the Assembly_CSharp.dll, which contains the games
 core logic. If you want to expand this you'll have to extend or rewrite my tools.
